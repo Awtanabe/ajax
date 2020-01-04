@@ -1,4 +1,16 @@
 <h1>Todos#index</h1>
 <p>Find me in app/views/todos/index.html.erb</p>
 
-<%=link_to "todo作成", new_todo_path%>
+<h3>form</h3>
+<%= form_for @todo do |form|%>
+ <%= form.text_field :title %>
+ <%= form.submit id: "subbtn"  %>
+<%end%>
+
+
+<div id="todos">
+  <%@todos.each do |todo|%>
+    <%= todo.title%>
+    <br>
+  <%end%>
+</div>

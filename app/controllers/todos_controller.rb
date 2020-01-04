@@ -1,16 +1,20 @@
 class TodosController < ApplicationController
   def index
+    @todos = Todo.all
+    @todo = Todo.new
   end
 
   def new
-    @todo = Todo.new
   end
 
   def create
     @todo = Todo.new(todo_params)
 
     if @todo.save!
-      redirect_to todos_path
+      respond_to do |format|
+        format.html { redirect_to  todos_path}
+        format.json
+      end
     else
       redirect_to new_todo_path
     end
