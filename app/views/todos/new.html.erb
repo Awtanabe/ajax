@@ -1,2 +1,7 @@
 <h1>Todos#new</h1>
 <p>Find me in app/views/todos/new.html.erb</p>
+
+<%= form_for @todo do |form|%>
+ <%= form.text_field :title %>
+ <%= form.submit  %>
+<%end%>
